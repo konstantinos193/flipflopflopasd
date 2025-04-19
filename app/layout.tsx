@@ -1,3 +1,4 @@
+import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -5,15 +6,23 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Odinflip | Bitcoin Coinflip Platform",
-  description: "The ultimate Bitcoin coinflip experience. Bet, flip, and win in a secure and thrilling environment.",
+  title: "Odin Flip | Viking-Themed Bitcoin Coinflip Platform",
+  description:
+    "The ultimate Viking-themed Bitcoin coinflip experience. Bet, flip, and win with the blessing of Odin himself.",
   icons: {
     icon: [
       {
-        url: "/favicon.svg",
-        type: "image/svg+xml",
+        url: "/images/logo.png",
+        type: "image/png",
       },
     ],
+    apple: [
+      {
+        url: "/images/logo.png",
+        type: "image/png",
+        sizes: "180x180"
+      }
+    ]
   },
   manifest: "/manifest.json",
   themeColor: "#F7931A",
@@ -26,6 +35,27 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: "Odin Flip | Viking-Themed Bitcoin Coinflip Platform",
+    description: "The ultimate Viking-themed Bitcoin coinflip experience. Bet, flip, and win with the blessing of Odin himself.",
+    images: [
+      {
+        url: "/images/banner.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Odin Flip Banner"
+      }
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Odin Flip | Viking-Themed Bitcoin Coinflip Platform",
+    description: "The ultimate Viking-themed Bitcoin coinflip experience. Bet, flip, and win with the blessing of Odin himself.",
+    images: ["/images/banner.jpeg"],
+    creator: "@odinflip"
+  },
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -36,11 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 via-[#0A0A0F] to-[#0A0A0F]">
-          {children}
-        </div>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
