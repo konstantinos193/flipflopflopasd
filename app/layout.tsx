@@ -1,15 +1,31 @@
-import type React from "react"
-import "@/app/globals.css"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-
-import { ThemeProvider } from "@/components/theme-provider"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: "BTC Coinflip",
-  description: "Flip a coin and bet Bitcoin",
-    generator: 'v0.dev'
+export const metadata: Metadata = {
+  title: "Odinflip | Bitcoin Coinflip Platform",
+  description: "The ultimate Bitcoin coinflip experience. Bet, flip, and win in a secure and thrilling environment.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+  themeColor: "#F7931A",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -19,10 +35,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <div className="min-h-screen bg-gradient-to-b from-gray-900 via-[#0A0A0F] to-[#0A0A0F]">
           {children}
-        </ThemeProvider>
+        </div>
       </body>
     </html>
   )
