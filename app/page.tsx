@@ -41,8 +41,15 @@ export default function HomePage() {
       </header>
 
       {/* Hero Banner */}
-      <div className="relative w-full h-[300px] md:h-[400px] overflow-hidden">
-        <Image src="/images/banner.jpeg" alt="Odin Flip Banner" fill priority className="object-cover object-center" />
+      <div className="relative w-full aspect-[21/9] sm:aspect-[21/8] md:aspect-[21/6] lg:aspect-[21/5]">
+        <Image 
+          src="/images/banner.jpeg" 
+          alt="Odin Flip Banner" 
+          fill 
+          priority 
+          sizes="100vw"
+          className="object-cover object-center brightness-90" 
+        />
       </div>
 
       {/* Main Content */}
